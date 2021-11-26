@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp1_.ChancelleryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:WpfApp1_"
+        mc:Ignorable="d"
+        Title="ChancelleryWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF6DB49F" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+            <GradientStop Color="#FFE59E9E" Offset="0.49"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <DataGrid x:Name="dataGrid" Height="288" Margin="1,1,-1,0" VerticalAlignment="Top" SelectedCellsChanged="dataGrid_SelectedCellsChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Именование" Binding="{Binding NameUnit}" Width="1*"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding TypeUnit1.NameType}" Width="1*"/>
+                <DataGridTextColumn Header="Производитель" Binding="{Binding Company1.NameCompany}" Width="1*"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width="1*"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="1*"/>
+                <DataGridTextColumn Header="Добавил сотрудник" Binding="{Binding Employee.Login}" Width="1*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Введите название" Height="93" Margin="22,308,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="158"/>
+        <ComboBox x:Name="cbType" DisplayMemberPath="NameType" HorizontalAlignment="Left" Margin="201,308,0,0" VerticalAlignment="Top" Width="156" SelectedIndex="0"/>
+        <ComboBox x:Name="cbCompany" DisplayMemberPath="NameCompany" HorizontalAlignment="Left" Margin="201,371,0,0" VerticalAlignment="Top" Width="156" SelectedIndex="0"/>
+        <TextBox x:Name="tbPrice" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Стоимость" Height="23" Margin="392,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" PreviewTextInput="tbPrice_PreviewTextInput"/>
+        <TextBox x:Name="tbCount" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Количество" Height="23" Margin="392,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" PreviewTextInput="tbPrice_PreviewTextInput"/>
+        <Button x:Name="button" Content="Добавить" HorizontalAlignment="Left" Margin="565,306,0,0" VerticalAlignment="Top" Width="92" Click="button_Click"/>
+        <Button x:Name="button_Copy" Content="Удалить" HorizontalAlignment="Left" Margin="565,338,0,0" VerticalAlignment="Top" Width="92" Click="button_Copy_Click"/>
+        <Button x:Name="button_Copy1" Content="Очистить" HorizontalAlignment="Left" Margin="662,338,0,0" VerticalAlignment="Top" Width="92" Click="button_Copy1_Click"/>
+        <Button x:Name="button_Copy2" Content="Сохранить" HorizontalAlignment="Left" Margin="662,305,0,0" VerticalAlignment="Top" Width="92" Click="button_Copy2_Click"/>
+
+    </Grid>
+</Window>
